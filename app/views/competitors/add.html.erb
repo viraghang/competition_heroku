@@ -7,6 +7,9 @@
 		<meta name="keywords" content="pályázat, alapítvány, nyereményjáték" />
 		<link rel="StyleSheet" href="/assets/competitors.css" type="text/css" />
 		<%= javascript_include_tag "application" %>
+		<script>
+		this.form.upload.value = this.value;
+		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -37,16 +40,14 @@
 						<li>&nbsp;Egyéb<br />
 							<%= f.text_area(:comments, :class => "freetext") %>
 						</li>
-						<li>&nbsp;Pályázati kép<br />
+						<li id="picture">&nbsp;Pályázati kép<br />
 							<div class="image_browse_field">
-								<input type="file" name="competitor[image]" class="image_browse" size="61" />
-								<img src="/assets/browsefield.png" class="image_style" />
+								<input type="text" name="upload" id="upload" />
 							</div>
+							<input type="file" name="competitor[image]" class="image_browse" onchange="this.form.upload.value = this.value;" />
 						</li>
-						<li id="last">
-							<div id="radiowrap">
-								<input type="radio" name="competitor[terms]" value="accepted" class="radio" />
-							</div>&nbsp;&nbsp;&nbsp;Szabályzat elfogadása
+						<li>			
+							<input type="radio" name="competitor[terms]" value="accepted" />&nbsp;&nbsp;&nbsp;Szabályzat elfogadása
 						</li>
 						<li>	
 							<button type="submit" name="submitButton"><img src="/assets/pbutton.png" width="456" height="51"></button>

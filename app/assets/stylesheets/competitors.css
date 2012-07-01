@@ -48,40 +48,32 @@ body {
 
 /* Képfeltöltő mező stílusai */
 
-.image_browse_field {
+#picture {
 	position: relative ;
+	width: 470px ;
 }
+
+.image_browse_field {
+	background-image: url('/assets/browsefield.png') ;
+	width: 460px ;	
+	height: 32px ;
+}
+
+#upload {
+	width: 295px ;
+	border: none ;
+	margin-left: 5px ;
+	margin-top: 6px ;
+}
+
 
 input.image_browse {
 	position: absolute ;
-	top: 0px ;
-	left: 0px ;
-	width: 455px ;
+	top: 30px ;
+	left: 325px ;
 	opacity: 0 ;
+	width: 140px ;
 	z-index: 2 ;
-}
-
-.image_style {
-	position: relative ;
-	z-index: 1 ;
-}
-
-/* Rádió-gomb stílusai */
-
-#radiowrap {
-	float: left ;
-	position: relative ;
-	margin-top: 5px ;
-	width: 16px ;
-	height: 16px ;
-	background-image: url('/assets/radio.png');
-}
-
-.radio {
-	position: absolute ;
-	left: -3px ;
-	top: -1px ;
-	opacity: 0.5 ;
 }
 
 /* Küldés gomb */
