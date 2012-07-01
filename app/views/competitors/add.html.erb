@@ -1,0 +1,59 @@
+﻿<html>
+	<head>
+		<title>Pályázat - Nyereményjáték!</title>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Sultan Flowerson" />
+		<meta name="description" content="Pályázati lehetőség alapítványi intézmények számára." />
+		<meta name="keywords" content="pályázat, alapítvány, nyereményjáték" />
+		<link rel="StyleSheet" href="/assets/competitors.css" type="text/css" />
+		<%= javascript_include_tag "application" %>
+	</head>
+	<body>
+		<div id="container">
+	<!-- Szerver oldali hitelesítés hibaüzenetei -->
+			<%= error_messages(@competitor) %>
+			<div id="formwrapper">
+	<!-- Űrlap -->			
+				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
+					<ul>
+						<li>&nbsp;Név<br />
+							<%= f.text_field(:name, :class => "textfield", :maxlength => 100) %>
+						</li>
+						<li>&nbsp;Email<br />
+							<%= f.text_field(:email, :class => "textfield", :maxlength => 100) %>
+						</li>
+						<li>&nbsp;Pályázat neve<br />
+							<%= f.text_field(:tender_name, :class => "textfield", :maxlength => 100) %>
+						</li>
+						<li>&nbsp;Telefon<br />
+							<%= f.text_field(:telephone, :class => "textfield", :maxlength => 11) %>
+						</li>
+						<li>&nbsp;Irányítószám<br />
+							<%= f.text_field(:zipcode, :class => "textfield", :maxlength => 4) %>
+						</li>
+						<li>&nbsp;Lakcím<br />
+							<%= f.text_field(:address, :class => "textfield", :maxlength => 100) %>
+						</li>
+						<li>&nbsp;Egyéb<br />
+							<%= f.text_area(:comments, :class => "freetext") %>
+						</li>
+						<li>&nbsp;Pályázati kép<br />
+							<div class="image_browse_field">
+								<input type="file" name="competitor[image]" class="image_browse" size="61" />
+								<img src="/assets/browsefield.png" class="image_style" />
+							</div>
+						</li>
+						<li id="last">
+							<div id="radiowrap">
+								<input type="radio" name="competitor[terms]" value="accepted" class="radio" />
+							</div>&nbsp;&nbsp;&nbsp;Szabályzat elfogadása
+						</li>
+						<li>	
+							<button type="submit" name="submitButton"><img src="/assets/pbutton.png" width="456" height="51"></button>
+						</li>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+	</body>
+</html>

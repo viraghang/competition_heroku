@@ -1,0 +1,135 @@
+/* Fő szerkezeti sítlusok */
+
+body {
+	background-color: rgb(69,69,70) ;
+}
+
+#container {
+	margin: 0 auto 20px auto ;
+	width: 800px ;
+	height: 1500px ;
+	background-image: url('/assets/ombrello.png') ;
+}
+
+#formwrapper {
+	font-size: 13px ;
+	font-family: Arial ;
+	padding-top: 760px ;
+	padding-left: 15px ;
+	line-height: 200% ;
+}
+
+/* Lista stílusai */
+
+#formwrapper ul {
+	list-style: none ;
+}
+
+#formwrapper li {
+	margin-bottom: 5px ;
+}
+
+/* Szövegmezők stílusai */
+
+.textfield {
+	border: 2px solid rgb(235,218,119) ;
+	width: 455px ;
+	height: 28px ;
+	border-radius: 5px ;
+}
+
+.freetext {
+	border: 2px solid rgb(235,218,119) ;
+	width: 455px ;
+	height: 135px ;
+	border-radius: 5px ;
+	resize: none ;
+}
+
+/* Képfeltöltő mező stílusai */
+
+.image_browse_field {
+	position: relative ;
+}
+
+input.image_browse {
+	position: absolute ;
+	top: 0px ;
+	left: 0px ;
+	width: 455px ;
+	opacity: 0 ;
+	z-index: 2 ;
+}
+
+.image_style {
+	position: relative ;
+	z-index: 1 ;
+}
+
+/* Rádió-gomb stílusai */
+
+#radiowrap {
+	float: left ;
+	position: relative ;
+	margin-top: 5px ;
+	width: 16px ;
+	height: 16px ;
+	background-image: url('/assets/radio.png');
+}
+
+.radio {
+	position: absolute ;
+	left: -3px ;
+	top: -1px ;
+	opacity: 0.5 ;
+}
+
+/* Küldés gomb */
+
+button {
+	border: none ;
+	width: 456px ;
+	height: 51px ;
+	text-align: left ;
+	padding: 0 ;
+	margin: 0 ;
+	-moz-appearance: button ;
+}
+
+/* Hibaüzenetek stílusai */
+
+#error_Explanation {
+	color: red ;
+	background-color: white ;
+	float: left ;
+	padding: 20px ;
+	margin: 20px ;
+	border-radius: 10px ;
+	opacity: 0.9 ;
+	font-family: Arial ;
+}
+
+.field_with_errors input:not([type='radio']) {
+	border: 2px solid red ;
+}
+
+.field_with_errors textarea {
+	border: 2px solid red ;
+}
+
+.field_with_errors .message {
+	color: red ;
+	font-family: sans-serif ;
+	background-color: rgba(255,255,255,0.8) ;
+	margin-left: 10px ;
+	padding: 10px ;
+	border-radius: 5px;
+}
+
+#last div.field_with_errors {
+	float:left ;
+	margin: 0;
+	padding: 0;
+	width: 16px ;
+	height: 16px ;
+}

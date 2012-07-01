@@ -1,0 +1,16 @@
+body {
+	background-color: rgb(69,69,70) ;
+}
+
+#container {
+	margin: 20px auto 0 auto ;
+	padding: 30px ;
+	border-radius: 5px ;
+	opacity: 0.8 ;
+	background-color: white ;
+	width: 500px ;
+	text-align: center ;
+	font-weight: bold ;
+	font-family: Georgia ;
+	color: red ;
+}

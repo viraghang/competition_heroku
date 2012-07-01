@@ -1,0 +1,10 @@
+<% if object && object.errors.size > 0 %>
+  <div id="error_Explanation">
+    <p>A következő problémák miatt nem sikerült a pályázat elküldése:</p>
+    <ul>
+    <% object.errors.each do |field, msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
