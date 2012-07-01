@@ -64,17 +64,4 @@ Competition::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => 'deep-waterfall-6113.herokuapp.com',
-  :user_name            => 'stanfel99@gmail.com',
-  :password             => '20*Kiskertemben*11',
-  :authentication       => 'plain',
-  :enable_starttls_auto => true
-}
 end
