@@ -15,7 +15,7 @@ development:
   database: competition_development
   pool: 5
   username: root
-  password: 19*Scarabeus84
+  password:
   host: 127.0.0.1
   port: 3306
 
@@ -29,7 +29,7 @@ test:
   database: competition_test
   pool: 5
   username: root
-  password: 19*Scarabeus84
+  password:
   host: 127.0.0.1
   port: 3306
 
@@ -40,6 +40,6 @@ production:
   database: competition_production
   pool: 5
   username: root
-  password: 19*Scarabeus84
+  password:
   host: 127.0.0.1
   port: 3306
