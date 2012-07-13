@@ -7,11 +7,14 @@ class CompetitorsController < ApplicationController
   end
 
 	def add
-		@competitor = Competitors.new
-		@access_token = @facebook_cookies["access_token"]
-    @graph = Koala::Facebook::GraphAPI.new(@access_token)
-    @likes = @graph.get_connections("me", "likes")
-    @status = "OK"
+		begin
+		  @competitor = Competitors.new
+		  @access_token = @facebook_cookies["access_token"]
+      @graph = Koala::Facebook::GraphAPI.new(@access_token)
+      @likes = @graph.get_connections("me", "likes")
+      @status = "OK"
+    rescue
+      nil
 	end
 	
 	def create
