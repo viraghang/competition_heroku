@@ -4,7 +4,7 @@ class CompetitorsController < ApplicationController
   before_filter :parse_signed_request
 
   def parse_signed_request
-    @oauth = Koala::Facebook::OAuth.new
+    @oauth = Koala::Facebook::OAuth.new.('258087090967737', 'c8557312c44f7a0a85c2420f8584c402')
     @signed_request = @oauth.parse_signed_request(params["signed_request"])
   end
   
