@@ -61,6 +61,7 @@
 	<!-- Szerver oldali hitelesítés hibaüzenetei -->
 			<%= error_messages(@competitor) %>
 			<div id="formwrapper">
+				<%= @signed_request["page"]["liked"]%>
 	<!-- Űrlap -->			
 				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
 					<ul>
@@ -89,11 +90,13 @@
 							<div class="image_browse_field">
 								<input type="text" name="upload" id="upload" />
 							</div>
+							<% if @signed_request.present? %>
 								<% if @signed_request["page"]["liked"] == "true" %>								
 									<%= f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;") %>
 								<% else %>
 									<%= f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;", :disabled => "disabled") %>
 								<% end %>
+							<% end %>
 <!--							<input type="file" name="competitor[image]" class="image_browse" onchange="this.form.upload.value = this.value;"/>-->
 						</li>
 						<li>			
