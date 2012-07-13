@@ -61,12 +61,7 @@
 	<!-- Szerver oldali hitelesítés hibaüzenetei -->
 			<%= error_messages(@competitor) %>
 			<div id="formwrapper">
-				<% if @likes %>
-				 	<% for like in @likes %>
-				 		<%=h like["name"]%><br />
-						<%=h like["category"] %>
-				 	<% end %>
-				<% end %>
+				<%= @signed_request['liked']%>
 	<!-- Űrlap -->			
 				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
 					<ul>
