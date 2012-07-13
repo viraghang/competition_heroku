@@ -21,10 +21,35 @@
 		</script>
 	</head>
 	<body>
+		<div id="fb-root"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : 258087090967737, // App ID
+		      status     : true, // check login status
+		      cookie     : true, // enable cookies to allow the server to access the session
+		      xfbml      : true  // parse XFBML
+		    });
+
+		  // Load the SDK Asynchronously
+		  (function(d){
+		     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement('script'); js.id = id; js.async = true;
+		     js.src = "//connect.facebook.net/en_US/all.js";
+		     ref.parentNode.insertBefore(js, ref);
+		   }(document));
+		</script>
 		<div id="container">
 	<!-- Szerver oldali hitelesítés hibaüzenetei -->
 			<%= error_messages(@competitor) %>
 			<div id="formwrapper">
+				<% if @likes %>
+				 	<% for like in @likes %>
+				 		<%=h like["name"]%><br />
+						<%=h like["category"] %>
+				 	<% end %>
+				 <% end %>
 	<!-- Űrlap -->			
 				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
 					<ul>
@@ -69,7 +94,7 @@
 		<script src="http://connect.facebook.net/en_US/all.js"></script>
 		<script>
 		FB.init({
-		appId : '258087090967737',
+		appId : 258087090967737,
 		status : true, // check login status
 		cookie : true, // enable cookies to allow the server to access the session
 		xfbml : true // parse XFBML

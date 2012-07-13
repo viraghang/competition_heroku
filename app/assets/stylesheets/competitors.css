@@ -118,6 +118,15 @@ button {
 	border-radius: 5px;
 }
 
+.like {
+	color: red ;
+	font-family: sans-serif ;
+	background-color: rgba(255,255,255,0.8) ;
+	margin-left: 10px ;
+	padding: 10px ;
+	border-radius: 5px;
+}
+
 #last div.field_with_errors {
 	float:left ;
 	margin: 0;
