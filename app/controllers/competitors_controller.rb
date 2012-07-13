@@ -15,6 +15,7 @@ class CompetitorsController < ApplicationController
       @status = "OK"
     rescue
       nil
+    end
 	end
 	
 	def create
