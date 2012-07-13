@@ -49,7 +49,11 @@
 				 		<%=h like["name"]%><br />
 						<%=h like["category"] %>
 				 	<% end %>
-				 <% end %>
+				<% elsif @status %>
+					<%= @status %>
+				<% else %>
+					<%= "Valami gáz van!"%>
+				<% end %>
 	<!-- Űrlap -->			
 				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
 					<ul>
