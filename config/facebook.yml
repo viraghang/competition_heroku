@@ -1,14 +1,11 @@
 development:
   app_id: 258087090967737
   secret_key: c8557312c44f7a0a85c2420f8584c402
-  callback_url: http://competition_heroku.dev
 
 production:
   app_id: 258087090967737
   secret_key: c8557312c44f7a0a85c2420f8584c402
-  callback_url: http://competition_heroku.dev
 
 test:
   app_id: 258087090967737
   secret_key: c8557312c44f7a0a85c2420f8584c402
-  callback_url: http://competition_heroku.dev
