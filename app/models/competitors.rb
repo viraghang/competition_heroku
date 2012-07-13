@@ -15,7 +15,7 @@ class Competitors < ActiveRecord::Base
 	validates_presence_of :zipcode, :message => "Nem maradhat üresen!"
 	validates_presence_of :address, :message => "Nem maradhat üresen!"
 	validates_presence_of :comments, :message => "Nem maradhat üresen!"
-	validates_presence_of :image, :message => "Kérem, töltsön fel képet!"
+	validates_presence_of :image, :message => "Kérem, töltsön fel képet! Ehhez Lájkolja az alkalmazást!"
 	validates_length_of :name, :minimum => 10, :too_short => "Túl kevés karakter!"
 	validates_length_of :tender_name, :minimum => 10, :too_short => "Túl kevés karakter!"
 	validates_length_of :address, :minimum => 10, :too_short => "Túl kevés karakter!"

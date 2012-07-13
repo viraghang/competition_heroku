@@ -55,13 +55,13 @@
 		     js = d.createElement('script'); js.id = id; js.async = true;
 		     js.src = "//connect.facebook.net/en_US/all.js";
 		     ref.parentNode.insertBefore(js, ref);
-		   }(document));
+		   }(document));			
 		</script>
 		<div id="container">
 	<!-- Szerver oldali hitelesítés hibaüzenetei -->
 			<%= error_messages(@competitor) %>
 			<div id="formwrapper">
-				<%= @signed_request["page"]["liked"] %>
+				<div id="hidden"><%= @signed_request["page"]["liked"] %></div>
 	<!-- Űrlap -->			
 				<%= form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f| %>
 					<ul>
@@ -90,7 +90,7 @@
 							<div class="image_browse_field">
 								<input type="text" name="upload" id="upload" />
 							</div>
-							<input type="file" name="competitor[image]" class="image_browse" onchange="this.form.upload.value = this.value;" />
+							<input type="file" name="competitor[image]" class="image_browse" onchange="this.form.upload.value = this.value;" disabled="false"/>
 						</li>
 						<li>			
 							<input type="radio" name="competitor[terms]" value="accepted" />&nbsp;&nbsp;&nbsp;Szabályzat elfogadása
@@ -100,6 +100,12 @@
 						</li>
 					</ul>
 				<% end %>
+				<script>
+					if ( document.getElementById("hidden") == "false" )
+						{
+							form.competitor[image].disabled=true ; 
+						}
+				</script>
 			</div>
 		</div>
 		<div id="fb-root"></div>
