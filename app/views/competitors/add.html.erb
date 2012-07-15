@@ -93,6 +93,7 @@
 									<%= f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;") %>
 								<% else %>
 									<%= f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;", :disabled => "disabled") %>
+									<%= flash[:notice]="A képfeltöltéshez kattints a 'Tetszik', avagy 'Like' gombra!"%>
 								<% end %>
 <!--							<input type="file" name="competitor[image]" class="image_browse" onchange="this.form.upload.value = this.value;"/>-->
 						</li>
