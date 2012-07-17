@@ -5,7 +5,7 @@
     %meta{:name => "author", :content => "Sultan Flowerson"}
     %meta{:name => "description", :content => "Pályázati lehetőség alapítványi intézmények számára."}
     %meta{:name => "keywords", :content => "pályázat, alapítvány, nyereményjáték"}
-    %link{:rel =>"StyleSheet" , :href => "/assets/competitors.css", :type => "text/css"}
+    = stylesheet_link_tag "competitors", :media => "all"
     = javascript_include_tag "application"
     :javascript
       this.form.upload.value = this.value;
@@ -81,6 +81,7 @@
               %br
               .image_browse_field
                 %input{:type => "text", :name => "upload", :id => "upload"}
+              / - if @signed_request.present?
               - if @signed_request["page"]["liked"] == true
                 = f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;")
               - else
