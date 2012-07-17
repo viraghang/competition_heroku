@@ -1,0 +1,102 @@
+%html
+  %head
+    %title Pályázat - Nyereményjáték
+    %meta{:charset => "UTF-8"}
+    %meta{:name => "author", :content => "Sultan Flowerson"}
+    %meta{:name => "description", :content => "Pályázati lehetőség alapítványi intézmények számára."}
+    %meta{:name => "keywords", :content => "pályázat, alapítvány, nyereményjáték"}
+    %link{:rel =>"StyleSheet" , :href => "/assets/competitors.css", :type => "text/css"}
+    = javascript_include_tag "application"
+    :javascript
+      this.form.upload.value = this.value;
+    :javascript
+      window.fbAsyncInit = function() {
+      FB.Canvas.setSize( {width: 900 } );
+      }
+      function sizeChangeCallback() {
+      FB.Canvas.setSize( {width: 900 } );
+      }
+  %body
+    #fb-root
+    :javascript
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 258087090967737, // App ID
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+          } else if (response.status === 'not_authorized') {
+          } else {
+          }
+         });
+
+      (function(d){
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         ref.parentNode.insertBefore(js, ref);
+       }(document));
+    #container
+      = error_messages(@competitor)
+      #formwrapper
+        = form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f|
+          %ul
+            %li
+              &nbsp;Név
+              %br
+              = f.text_field(:name, :class => "textfield", :maxlength => 100)
+            %li
+              &nbsp;Email
+              %br
+              = f.text_field(:email, :class => "textfield", :maxlength => 100)
+            %li
+              &nbsp;Pályázat neve
+              %br
+              = f.text_field(:tender_name, :class => "textfield", :maxlength => 100)
+            %li
+              &nbsp;Telefon
+              %br
+              = f.text_field(:telephone, :class => "textfield", :maxlength => 12)
+            %li
+              &nbsp;Irányítószám
+              %br
+              = f.text_field(:zipcode, :class => "textfield", :maxlength => 4)
+            %li
+              &nbsp;Lakcím
+              %br
+              = f.text_field(:address, :class => "textfield", :maxlength => 100)
+            %li
+              &nbsp;Egyéb
+              %br
+              = f.text_area(:comments, :class => "freetext")
+            %li#picture
+              &nbsp;Pályázati kép
+              %br
+              .image_browse_field
+                %input{:type => "text", :name => "upload", :id => "upload"}
+              - if @signed_request["page"]["liked"] == true
+                = f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;")
+              - else
+                = f.file_field(:image, :class => "image_browse", :disabled => "disabled")
+            %li
+              %input{:type => "radio", :name => "competitor[terms]", :value => "accepted"}
+              &nbsp;&nbsp;&nbsp;Szabályzat elfogadása
+            %li
+              %button{:type => "submit", :name => "submitButton"}
+                %img{:src => "/assets/pbutton.png", :width => "456", :height => "51"}
+    #fb-root
+    %script{:src => "http://connect.facebook.net/en_US/all.js"}
+    :javascript
+      FB.init({
+      appId : 258087090967737,
+      status : true, // check login status
+      cookie : true, // enable cookies to allow the server to access the session
+      xfbml : true // parse XFBML
+      });

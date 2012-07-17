@@ -1,6 +1,6 @@
 Competition::Application.routes.draw do
 
-  root :to => "competitors#add"
+  root :to => "competitors#new"
   match 'create', :to => 'competitors#create'
   match 'thanks', :to => 'thanks#index'
 
