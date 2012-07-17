@@ -1,7 +1,7 @@
 class CompetitorsController < ApplicationController
 
   #before_filter :parse_facebook_cookies
-  #before_filter :parse_signed_request
+  before_filter :parse_signed_request
 
   def parse_signed_request
     begin
