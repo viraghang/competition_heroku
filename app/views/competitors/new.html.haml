@@ -80,7 +80,7 @@
               &nbsp;Pályázati kép
               %br
               .image_browse_field
-                %input{:type => "text", :name => "upload", :id => "upload"}
+                %input{:type => "text", :name => "upload", :id => "upload", :readonly => "readonly"}
               / - if @signed_request.present?
               - if @signed_request["page"]["liked"] == true
                 = f.file_field(:image, :class => "image_browse", :onchange => "this.form.upload.value = this.value;")
