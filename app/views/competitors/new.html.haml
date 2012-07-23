@@ -49,35 +49,35 @@
         = form_for(@competitor, :as => :competitor, :url => {:action => 'create'}, :html => {:multipart => true, :id => "new_competitors"}, :validate => true) do |f|
           %ul
             %li
-              &nbsp;Név
+              = f.label(:name, "Név")
               %br
               = f.text_field(:name, :class => "textfield", :maxlength => 100)
             %li
-              &nbsp;Email
+              = f.label(:email, "Email")
               %br
               = f.text_field(:email, :class => "textfield", :maxlength => 100)
             %li
-              &nbsp;Pályázat neve
+              = f.label(:tender_name, "Pályázat neve")
               %br
               = f.text_field(:tender_name, :class => "textfield", :maxlength => 100)
             %li
-              &nbsp;Telefon
+              = f.label(:telephone, "Telefon")
               %br
               = f.text_field(:telephone, :class => "textfield", :maxlength => 12)
             %li
-              &nbsp;Irányítószám
+              = f.label(:zipcode, "Irányítószám")
               %br
               = f.text_field(:zipcode, :class => "textfield", :maxlength => 4)
             %li
-              &nbsp;Lakcím
+              = f.label(:address, "Lakcím")
               %br
               = f.text_field(:address, :class => "textfield", :maxlength => 100)
             %li
-              &nbsp;Egyéb
+              = f.label(:comments, "Egyéb")
               %br
               = f.text_area(:comments, :class => "freetext")
-            %li#picture
-              &nbsp;Pályázati kép
+            %li{:id => "picture"}
+              = f.label(:image, "Pályázati kép")
               %br
               .image_browse_field
                 %input{:type => "text", :name => "upload", :id => "upload"}
@@ -88,7 +88,8 @@
                 = f.file_field(:image, :class => "image_browse", :disabled => "disabled")
             %li
               %input{:type => "radio", :name => "competitor[terms]", :value => "accepted"}
-              &nbsp;&nbsp;&nbsp;Szabályzat elfogadása
+              &nbsp;&nbsp;&nbsp;
+              = f.label(:terms, "Szabályzat elfogadása")
             %li
               %button{:type => "submit", :name => "submitButton"}
                 %img{:src => "/assets/pbutton.png", :width => "456", :height => "51"}
