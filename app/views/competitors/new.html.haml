@@ -19,6 +19,16 @@
           cookie     : true, // enable cookies to allow the server to access the session
           xfbml      : true  // parse XFBML
         });
+
+        FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          var uid = response.authResponse.userID;
+          var accessToken = response.authResponse.accessToken;
+          } else if (response.status === 'not_authorized') {
+          } else {
+          }
+        });
+
         function getDocHeight() {
           var D = document;
           return Math.max(
@@ -35,15 +45,6 @@
         };
         setTimeout( mySetSize, 200 );
       };
-
-      FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-          var uid = response.authResponse.userID;
-          var accessToken = response.authResponse.accessToken;
-          } else if (response.status === 'not_authorized') {
-          } else {
-          }
-      });
 
       (function(d){
          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
