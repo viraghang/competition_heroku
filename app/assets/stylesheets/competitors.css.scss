@@ -2,11 +2,16 @@
 
 body {
   background-color: rgb(69,69,70) ;
+  position: relative ;
+  overflow: hidden ;
+  margin: 0 ;
+  padding: 0 ;
+  border: 0 ;
 }
 
 #container {
   margin: 0 auto 20px auto ;
-  width: 800px ;
+  width: 810px ;
   height: 1500px ;
   background-image: url('/assets/ombrello.png') ;
 }

@@ -9,13 +9,6 @@
     = javascript_include_tag "application"
     :javascript
       this.form.upload.value = this.value;
-    :javascript
-      window.fbAsyncInit = function() {
-      FB.Canvas.setSize( {width: 900 } );
-      }
-      function sizeChangeCallback() {
-      FB.Canvas.setSize( {width: 900 } );
-      }
   %body
     #fb-root
     :javascript
@@ -26,15 +19,31 @@
           cookie     : true, // enable cookies to allow the server to access the session
           xfbml      : true  // parse XFBML
         });
+        function getDocHeight() {
+          var D = document;
+          return Math.max(
+            Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+            Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+            Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+          );
+        };
 
-        FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
+        var mySetSize = function() {
+          var height = getDocHeight();
+          FB.Canvas.setSize({ width: 810, height: height });
+          setTimeout( mySetSize, 200 );
+        };
+        setTimeout( mySetSize, 200 );
+      };
+
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          var uid = response.authResponse.userID;
+          var accessToken = response.authResponse.accessToken;
           } else if (response.status === 'not_authorized') {
           } else {
           }
-         });
+      });
 
       (function(d){
          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
