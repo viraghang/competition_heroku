@@ -27,6 +27,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'client_side_validations'
 gem 'koala'
+gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -66,6 +66,7 @@ GEM
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
+    newrelic_rpm (3.4.1)
     pg (0.13.1)
     pg (0.13.1-x86-mingw32)
     polyglot (0.3.3)
@@ -125,6 +126,7 @@ DEPENDENCIES
   jquery-rails
   koala
   mysql2
+  newrelic_rpm
   pg
   rails (= 3.2.6)
   sass-rails
